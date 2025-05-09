@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wildlife Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle" aria-label="Toggle dark/light theme">🌙</button>
+
+  <!-- Navigation Bar -->
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <h1 class="fade-in">Welcome to Wildlife Explorer</h1>
+    <p class="fade-in">Discover the beauty of nature and its fascinating creatures.</p>
+  </header>
+
+  <!-- Interactive Button -->
+  <section class="interactive fade-in">
+    <button id="magicButton">Click Me to Change!</button>
+  </section>
+
+  <!-- Wildlife Gallery -->
+  <section id="gallery">
+    <h2 class="fade-in">Gallery</h2>
+    <div class="gallery-container">
+      <img src="images/1.jpg" alt="Wild Animal" class="gallery-item">
+      <img src="images/2.jpg" alt="Wild Bird" class="gallery-item">
+      <img src="images/3.jpg" alt="Wild Landscape" class="gallery-item">
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Us</h2>
+    <form id="contactForm" novalidate>
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="At least 8 characters" required>
+
+      <button type="submit">Submit</button>
+      <p id="feedback" role="alert"></p>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

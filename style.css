@@ -1,0 +1,122 @@
+/* ─── Base & Reset ─────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s;
+}
+body.dark {
+  background: #222;
+  color: #eee;
+}
+
+/* ─── Theme Toggle ────────────────────────────────── */
+#themeToggle {
+  position: fixed; top: 1rem; right: 1rem;
+  background: transparent; border: none; font-size: 1.5rem;
+  cursor: pointer; transition: transform 0.3s;
+}
+#themeToggle:hover { transform: rotate(20deg); }
+
+/* ─── Navigation ─────────────────────────────────── */
+nav {
+  background: #4CAF50; position: sticky; top: 0; z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+nav ul { display: flex; justify-content: center; list-style: none; }
+nav li { margin: 0 1rem; position: relative; }
+nav a {
+  color: #fff; text-decoration: none; font-weight: 600;
+  padding: 1rem 0; display: inline-block;
+  transition: color 0.3s;
+}
+nav a:hover { color: #ffeb3b; }
+/* Underline animation */
+nav a::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 2px; background: #ffeb3b;
+  transition: width 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+/* ─── Fade-In Animation ───────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+.fade-in:nth-child(1) { animation-delay: 0.2s; }
+.fade-in:nth-child(2) { animation-delay: 0.4s; }
+.fade-in:nth-child(3) { animation-delay: 0.6s; }
+
+/* ─── Interactive Button ─────────────────────────── */
+.interactive { padding: 2rem 1rem; }
+#magicButton {
+  background: #007bff; color: #fff; border: none; border-radius: 5px;
+  padding: 0.75rem 1.5rem; font-size: 1rem; cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+#magicButton:hover { transform: scale(1.05); }
+
+/* Pulse animation for click */
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+.pulse { animation: pulse 1s ease-in-out; }
+
+/* ─── Gallery ─────────────────────────────────────── */
+#gallery { padding: 2rem 1rem; background: #fff; }
+.gallery-container {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+}
+/* Slide-Up + Fade for gallery items */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gallery-item {
+  width: 200px; border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s, filter 0.3s;
+  opacity: 0;
+}
+.gallery-item.visible {
+  animation: slideUp 0.6s forwards;
+}
+.gallery-item:hover {
+  transform: scale(1.05); filter: brightness(1.1);
+}
+
+/* ─── Contact Form ───────────────────────────────── */
+#contact { padding: 2rem 1rem; background: #e8f5e9; }
+#contactForm { max-width: 400px; margin: 0 auto; text-align: left; }
+#contactForm label { display: block; margin-top: 1rem; }
+#contactForm input {
+  width: 100%; padding: 0.75rem; margin-top: 0.5rem;
+  border: 1px solid #ccc; border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+#contactForm input:focus {
+  border-color: #4CAF50; box-shadow: 0 0 5px rgba(76,175,80,0.5);
+}
+#contactForm button[type="submit"] {
+  margin-top: 1.5rem; background: #4CAF50; color: #fff;
+  border: none; border-radius: 5px; padding: 0.75rem 1.5rem;
+  cursor: pointer; transition: background-color 0.3s;
+}
+#contactForm button[type="submit"]:hover {
+  background: #388E3C;
+}
+#feedback { margin-top: 1rem; font-weight: bold; }
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .gallery-item { width: 45%; }
+  nav ul { flex-wrap: wrap; }
+}
